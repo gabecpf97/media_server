@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/media', (req, res, next) => {
-  const mediaPath = path.join(__dirname, '../media/', req.query.name);
+  console.log(req.query.name);
+  const mediaPath = path.join(req.query.name);
   console.log(mediaPath);
   if (fs.access(mediaPath, fs.F_OK, (err) => {
       if (err)
